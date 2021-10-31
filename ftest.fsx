@@ -5,3 +5,4 @@ open System
 printf "hello world\n"
 
 
+printf "how are you?\n"
