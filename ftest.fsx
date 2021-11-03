@@ -53,7 +53,8 @@ printf "How are you?\n"
 if incomingStream.IsSome then
   printf "\n You sent me a stream\n"
   printf "%A" incomingStream.Value
-  let incomingLines=incomingStream.ToString().Split Environment.NewLine
+  let incomingLines=incomingStream.Value.ToString().Split Environment.NewLine
   let numItems=incomingLines.Length
   printf "You sent me %A items\n" numItems
+  incomingLines |> Array.filter(fun x->x.Length>0) |> Array.sort |> Array.iter(fun x->printf "%A\n" x)
   else ()
