@@ -25,3 +25,4 @@
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.dll
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.pdb
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.genruntimeconfig.cache
+/home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.fsproj.CoreCompileInputs.cache
