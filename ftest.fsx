@@ -64,7 +64,6 @@ task {
     let incomingLines=incomingStream.ToString().Split Environment.NewLine
     let numItems=incomingLines.Length
     printf "You sent me %A items\n" numItems
-    //printf "%A init\n" init
     else ()
 }
 
