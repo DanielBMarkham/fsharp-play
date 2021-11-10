@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ryIyvYrcrGR3hwmWJJYN4357YrHFrOdSAGVePw2/8m3YAOy+0pMrIekcKVU2zP40Ja8hndyOHn9P80CeYYzoxQ==",
+  "dgSpecHash": "2cteTLGW7iAkv+k2TGmkQGUgRtA8CexMwZHlPWw4eDfx3zUXiqN7c9EfOY4iHGlcw2RQRkAoyuhJmuXbx1U3Iw==",
   "success": true,
   "projectFilePath": "/home/daniel/Source/fsharp-play/fsharp-play.fsproj",
   "expectedPackageFiles": [
-    "/home/daniel/.nuget/packages/fsharp.core/5.0.0/fsharp.core.5.0.0.nupkg.sha512"
+    "/home/daniel/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512",
+    "/home/daniel/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "/home/daniel/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/home/daniel/.nuget/packages/microsoft.netcore.app.host.linux-x64/5.0.12/microsoft.netcore.app.host.linux-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
