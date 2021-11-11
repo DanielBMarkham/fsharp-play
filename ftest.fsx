@@ -5,26 +5,27 @@ open System.Net
 open System.Threading
 open System.Threading.Tasks
 open Microsoft.FSharp.Control.TaskBuilder
+open System.Collections.Generic
 
 type CLIArgType= Flag | NameValue
 let pickACLIArgType (s:string) = if s.Contains ":" || s.Contains "=" then NameValue else Flag
 let splitArgIntoNameAndValue (s:string)=if s.Contains ":" then s.Split(":",2) else s.Split("=",2)
-let argsWithFlags=System.Environment.GetCommandLineArgs() |> Array.map(fun x->(pickACLIArgType x, x))
-let args=argsWithFlags|>Array.map(fun (x,y)->
-  match x with
-    | Flag->(y,Flag,None)
-    | NameValue->
-      let name,theval=((splitArgIntoNameAndValue y).[0],(splitArgIntoNameAndValue y).[1])
-      (name, NameValue,Some theval)
-    |_ ->(y,Flag,None)
-  )
 
+let cliFlags=System.Environment.GetCommandLineArgs() |> Array.filter(fun x->pickACLIArgType x = Flag)
+let cliParms=System.Environment.GetCommandLineArgs() |> Array.filter(fun x->pickACLIArgType x = NameValue)
+
+type Dictionary<'TKey,'TValue> with
+  member x.OptionalItem(key) = if x.ContainsKey key then Some x.[key] else None
+let flagDict=new Dictionary<string,string>()
+let parmDict=new Dictionary<string,string>()
+cliFlags |> Array.iter(fun x->flagDict.Add(x,x))
+cliParms |> Array.iter(fun x->parmDict.Add((splitArgIntoNameAndValue x).[0],(splitArgIntoNameAndValue x).[1]))
 
 let asyncReadIncoming(readSizeNext:int, incomingStreamBuffer:option<Text.StringBuilder>, buffer:ref<byte []>, readSizeCumulative:int, stream:System.IO.Stream)=
   if readSizeNext>(0) // -1 is nothing happened. 0 is end-of-stream
     then      //Try reading again to the end of the stream.
       try
-        incomingStreamBuffer.Value.Append(Console.InputEncoding.GetString(!buffer, 0, readSizeNext)) |> ignore 
+        incomingStreamBuffer.Value.Append(Console.InputEncoding.GetString(buffer.Value, 0, readSizeNext)) |> ignore
         let rec asyncReadRest() =
           task {
             let newBuffer=Array.zeroCreate 65535
@@ -59,9 +60,10 @@ let asyncGetIncomingStream():Task<option<Text.StringBuilder>> =
     else return None
   }
 
-
 printf "hello world\n"
 printf "How are you?\n"
+printfn "%A" flagDict
+printfn "%A" parmDict
 
 task {
   let! incomingStream = asyncGetIncomingStream()
