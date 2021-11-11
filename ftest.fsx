@@ -7,19 +7,16 @@ open System.Threading.Tasks
 open Microsoft.FSharp.Control.TaskBuilder
 open System.Collections.Generic
 
-type CLIArgType= Flag | NameValue
-let pickACLIArgType (s:string) = if s.Contains ":" || s.Contains "=" then NameValue else Flag
 let splitArgIntoNameAndValue (s:string)=if s.Contains ":" then s.Split(":",2) else s.Split("=",2)
-
-let cliFlags=System.Environment.GetCommandLineArgs() |> Array.filter(fun x->pickACLIArgType x = Flag)
-let cliParms=System.Environment.GetCommandLineArgs() |> Array.filter(fun x->pickACLIArgType x = NameValue)
-
+let isAParm (s:string) = if s.Contains ":" || s.Contains "=" then true else false
+let cParms,cFlags = System.Environment.GetCommandLineArgs()|>Array.partition isAParm
 type Dictionary<'TKey,'TValue> with
   member x.OptionalItem(key) = if x.ContainsKey key then Some x.[key] else None
 let flagDict=new Dictionary<string,string>()
 let parmDict=new Dictionary<string,string>()
-cliFlags |> Array.iter(fun x->flagDict.Add(x,x))
-cliParms |> Array.iter(fun x->parmDict.Add((splitArgIntoNameAndValue x).[0],(splitArgIntoNameAndValue x).[1]))
+cFlags |> Array.iter(fun x->flagDict.Add(x,x))
+cParms |> Array.iter(fun x->parmDict.Add((splitArgIntoNameAndValue x).[0],(splitArgIntoNameAndValue x).[1]))
+
 
 let asyncReadIncoming(readSizeNext:int, incomingStreamBuffer:option<Text.StringBuilder>, buffer:ref<byte []>, readSizeCumulative:int, stream:System.IO.Stream)=
   if readSizeNext>(0) // -1 is nothing happened. 0 is end-of-stream
