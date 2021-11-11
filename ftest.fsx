@@ -6,11 +6,18 @@ open System.Threading
 open System.Threading.Tasks
 open Microsoft.FSharp.Control.TaskBuilder
 
-// args if you want 'em. Use idiomatic try catch
-let args=System.Environment.GetCommandLineArgs()
-let arg1=try Some args.[1] with |_-> None
-let arg2=try Some args.[2] with |_-> None
-let arg3=try Some args.[3] with |_-> None
+type CLIArgType= Flag | NameValue
+let pickACLIArgType (s:string) = if s.Contains ":" || s.Contains "=" then NameValue else Flag
+let splitArgIntoNameAndValue (s:string)=if s.Contains ":" then s.Split(":",2) else s.Split("=",2)
+let argsWithFlags=System.Environment.GetCommandLineArgs() |> Array.map(fun x->(pickACLIArgType x, x))
+let args=argsWithFlags|>Array.map(fun (x,y)->
+  match x with
+    | Flag->(y,Flag,None)
+    | NameValue->
+      let name,theval=((splitArgIntoNameAndValue y).[0],(splitArgIntoNameAndValue y).[1])
+      (name, NameValue,Some theval)
+    |_ ->(y,Flag,None)
+  )
 
 
 let asyncReadIncoming(readSizeNext:int, incomingStreamBuffer:option<Text.StringBuilder>, buffer:ref<byte []>, readSizeCumulative:int, stream:System.IO.Stream)=

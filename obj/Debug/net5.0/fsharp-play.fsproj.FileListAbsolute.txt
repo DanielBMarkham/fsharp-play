@@ -26,3 +26,6 @@
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.pdb
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.genruntimeconfig.cache
 /home/daniel/Source/fsharp-play/obj/Debug/net5.0/fsharp-play.fsproj.CoreCompileInputs.cache
+c:\Users\danie\Source\fsharp-play\obj\Debug\net5.0\fsharp-play.AssemblyInfoInputs.cache
+c:\Users\danie\Source\fsharp-play\obj\Debug\net5.0\fsharp-play.AssemblyInfo.fs
+c:\Users\danie\Source\fsharp-play\obj\Debug\net5.0\fsharp-play.fsproj.CoreCompileInputs.cache
