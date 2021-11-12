@@ -6,15 +6,16 @@ open System.Threading
 open System.Threading.Tasks
 open Microsoft.FSharp.Control.TaskBuilder
 open System.Collections.Generic
+open Microsoft.FSharp.Collections
 
-type Dictionary<'TKey,'TValue> with
-  member x.OptionalItem(key) = if x.ContainsKey key then Some x.[key] else None
-let flagDict,parmDict=new Dictionary<string,string>(), new Dictionary<string,string>()
+let flagDict=new System.Collections.Generic.List<string>()
+let parmDict=new SortedDictionary<string,string>()
 try
+  let skipNameOfExecutable=System.Environment.GetCommandLineArgs()|>Array.skip 2
   let splitArgIntoNameAndValue (s:string)=if s.Contains ":" then s.Split(":",2) else s.Split("=",2)
   let isAParm (s:string) = if s.Contains ":" || s.Contains "=" then true else false
-  let cParms,cFlags = System.Environment.GetCommandLineArgs()|>Array.partition isAParm
-  cFlags |> Array.iter(fun x->flagDict.Add(x,x))
+  let cParms,cFlags = skipNameOfExecutable|>Array.partition isAParm
+  cFlags |> Array.iter(fun x->flagDict.Add(x))
   cParms |> Array.iter(fun x->parmDict.Add((splitArgIntoNameAndValue x).[0],(splitArgIntoNameAndValue x).[1]))
 with |ex->()
 
@@ -58,18 +59,27 @@ let asyncGetIncomingStream():Task<option<Text.StringBuilder>> =
   }
 
 printf "hello world\n"
-printf "How are you?\n"
-printfn "%A" flagDict
-printfn "%A" parmDict
+printf "=============\n"
+printfn "FLAGS"
+flagDict |> Seq.iter(fun x->printfn "%A" x)
+printfn "PARMS"
+parmDict |> Seq.iter(fun x->printfn "%A" x)
 
 task {
   let! incomingStream = asyncGetIncomingStream()
   if incomingStream.IsSome then
-    printf "\n You sent me a stream\n"
-    printf "%A" incomingStream.Value
-    let incomingLines=incomingStream.ToString().Split Environment.NewLine
-    let numItems=incomingLines.Length
-    printf "You sent me %A items\n" numItems
+    printf "\nIncoming stream detected\n"
+    let incomingLines=incomingStream.Value.ToString().Split Environment.NewLine |> Array.toList |>List.filter(fun x->x<>"")
+    // DUMMY JOB FOR THIS SCRIPT TO DO
+    let sortedIncoming =
+      if flagDict.Exists(fun x->x="asc")
+        then
+          incomingLines |> List.sort
+        else incomingLines |> List.sort |>List.rev
+
+    let numItems=sortedIncoming.Length
+    printf "\nYou sent me %A items\n" numItems
+    sortedIncoming|>List.iter(fun x->printfn "%s" x) |> ignore
     else ()
 }
 
