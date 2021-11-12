@@ -8,14 +8,14 @@ open Microsoft.FSharp.Control.TaskBuilder
 open System.Collections.Generic
 open Microsoft.FSharp.Collections
 
-let flagDict=new System.Collections.Generic.List<string>()
+let flagList=new System.Collections.Generic.List<string>()
 let parmDict=new SortedDictionary<string,string>()
 try
   let skipNameOfExecutable=System.Environment.GetCommandLineArgs()|>Array.skip 2
   let splitArgIntoNameAndValue (s:string)=if s.Contains ":" then s.Split(":",2) else s.Split("=",2)
   let isAParm (s:string) = if s.Contains ":" || s.Contains "=" then true else false
   let cParms,cFlags = skipNameOfExecutable|>Array.partition isAParm
-  cFlags |> Array.iter(fun x->flagDict.Add(x))
+  cFlags |> Array.iter(fun x->flagList.Add(x))
   cParms |> Array.iter(fun x->parmDict.Add((splitArgIntoNameAndValue x).[0],(splitArgIntoNameAndValue x).[1]))
 with |ex->()
 
@@ -61,7 +61,7 @@ let asyncGetIncomingStream():Task<option<Text.StringBuilder>> =
 printf "hello world\n"
 printf "=============\n"
 printfn "FLAGS"
-flagDict |> Seq.iter(fun x->printfn "%A" x)
+flagList |> Seq.iter(fun x->printfn "%A" x)
 printfn "PARMS"
 parmDict |> Seq.iter(fun x->printfn "%A" x)
 
@@ -72,7 +72,7 @@ task {
     let incomingLines=incomingStream.Value.ToString().Split Environment.NewLine |> Array.toList |>List.filter(fun x->x<>"")
     // DUMMY JOB FOR THIS SCRIPT TO DO
     let sortedIncoming =
-      if flagDict.Exists(fun x->x="asc")
+      if flagList.Exists(fun x->x="asc")
         then
           incomingLines |> List.sort
         else incomingLines |> List.sort |>List.rev
