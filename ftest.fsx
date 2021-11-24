@@ -65,7 +65,7 @@ flagList |> Seq.iter(fun x->printfn "%A" x)
 printfn "PARMS"
 parmDict |> Seq.iter(fun x->printfn "%A" x)
 
-task {
+backgroundTask {
   let! incomingStream = asyncGetIncomingStream()
   if incomingStream.IsSome then
     printf "\nIncoming stream detected\n"
