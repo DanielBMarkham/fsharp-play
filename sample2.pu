@@ -1,0 +1,33 @@
+@startuml
+digraph G {
+  node [fontname = "Handlee"];
+  edge [fontname = "Handlee"];
+
+  
+  call [ label = "Get Phone Call" ];
+  arrive [ label = "Arrive\nat\nVet" ];
+  webVisit [ label = "Sign\nUp On\nWeb" ];
+  beginVisit [ label = "Begin Visit" ];
+  getMinimalLeadInfo [label="Get minimal\nIdentification"];
+  knowThem [ label = "Are they\nexisting\ncustomer?" ];
+  createANewAppointment[ label="Create\nAppointment?" ];
+  createVerifyCustomer[ label = "Create/Verify\nCustomer" ];
+  newOrExistingAppointment [label="New or Existing\nAppointment?"];
+  modifyAppointment [label="Modify\nExisting\nAppointment"];
+  appointmentCheckIn [label="Appointment\nCheck-In"];
+  beginVisit->newOrExistingAppointment;
+  webVisit -> beginVisit;
+  call -> beginVisit;
+  arrive -> beginVisit;
+  beginVisit->getMinimalLeadInfo;
+  getMinimalLeadInfo->beginVisit;
+  knowThem -> createVerifyCustomer [ label = "Existing" ];
+  createVerifyCustomer->knowThem;
+  newOrExistingAppointment->createANewAppointment [ label="New"];
+  createANewAppointment->knowThem;
+  newOrExistingAppointment->appointmentCheckIn [label="Existing"];
+  newOrExistingAppointment->modifyAppointment [label="Change"];
+}
+
+
+@enduml

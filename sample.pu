@@ -1,0 +1,16 @@
+@startuml blob
+
+Pet<|--Owner
+Visit<|--Owner
+Procedure<|--Visit
+Service<|--Visit
+Test<|--Visit 
+Procedure<|--BillItem 
+Service<|--BillItem 
+Test<|--BillItem 
+Schedule<|--BillItem 
+Bill<|--BillItem 
+Visit<|--Pet 
+Schedule<|--Veterinarian
+Schedule<|--Assistant
+@enduml
