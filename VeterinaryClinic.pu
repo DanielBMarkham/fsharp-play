@@ -1,0 +1,77 @@
+@startuml
+digraph VeterinaryClinic {
+  node [fontname = "Handlee"];
+  edge [fontname = "Handlee"];
+  compound=true;
+  label="Daniel's Veterinary Clinic";
+  subgraph cluster_StartVetVisit {
+    label="Start Vet Visit";
+    node [shape=record];
+    doYouKnowMeInput [label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
+    doYouKnowMeOutput [label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
+    knownEMails [label="Known Emails", shape=invtrapezium];
+    otpWaitList [label="OTP Waitlist", shape=invtrapezium];
+    areYouSureItsMeInput [label="Email|OTP|\[STUFF\]"];
+    areYouSureItsMeOutput [label="{Yes|No} | TempToken | \[STUFF\]"];
+    node [shape=oval];
+    doYouKnowMe [label="Do you\nknow me?"];
+    knownEMails->doYouKnowMe;
+    doYouKnowMeInput->doYouKnowMe;
+    doYouKnowMe->doYouKnowMeOutput;
+    doYouKnowMe->otpWaitList [dir=both];
+
+    areYouSureItsMe [label="Are you sure\nit's me?"];
+    areYouSureItsMe->otpWaitList [dir=both];
+    areYouSureItsMeInput->areYouSureItsMe;
+    areYouSureItsMe->areYouSureItsMeOutput;
+
+    canISeeTheDoctorNowInput [shape=record, label="<f0> EMail| <f1> TempToken | <f2> \[STUFF\]"];
+    canISeeTheDoctorNowOutput [shape=record, label="{<f0> Yes| <f1> No Appointment | <f2> No Our Problem | <f3> Who Are You?}| <f4> EMail| <f5> TempToken | <f6> \[STUFF\]"];
+    canISeeTheDoctorNow [shape=oval, label="Can I See\nThe Doctor Now?"];
+    canISeeTheDoctorNowInput->canISeeTheDoctorNow;
+    canISeeTheDoctorNow->canISeeTheDoctorNowOutput;
+
+    docSchedule [shape=invtrapezium, label="Doctors'\nSchedules"];
+    whatTimesAreOpenForAnAppointmentInput [shape=record, label="{<f0> Email | <f1> Token | <f2> \[StartDate\] | {<f3> \[DAY|Week|Month\]} | <f4> \[STUFF\]}"];
+    whatTimesAreOpenForAnAppointment [shape=oval, label="What times are\nopen for an\nappointment?"];
+    whatTimesAreOpenForAnAppointmentOutput [shape=record, label="{<f0> Email | <f1> Token | <f2> Doctor | <f3> Start | <f4> Stop | <f5> \[STUFF\]}"];
+    whatTimesAreOpenForAnAppointmentInput->whatTimesAreOpenForAnAppointment;
+    whatTimesAreOpenForAnAppointment->whatTimesAreOpenForAnAppointmentOutput;
+    docSchedule->whatTimesAreOpenForAnAppointment;
+
+    canYouFitMeInForThisAppointmentInput [shape=record, label="{<f0> Email | <f1> Token | <f2> Doctor | <f3> Start | <f4> Stop | <f5> \[STUFF\]}"];
+    canYouFitMeInForThisAppointmentOutput [shape=record, label="{<f0> Yes | <f1> No} | <f2> Token | <f3> Confirmation ID | <f4> \[STUFF\]"];
+    canYouFitMeInForThisAppointment [shape=oval, label="Can you fit me\nin for this\nappoointment?"];
+    canYouFitMeInForThisAppointmentInput->canYouFitMeInForThisAppointment;
+    canYouFitMeInForThisAppointment->canYouFitMeInForThisAppointmentOutput;
+  }
+
+  subgraph cluster_VisitVet {
+    node [fontname = "Handlee"];
+    edge [fontname = "Handlee"];
+    label="Visit Vet";
+
+    getBillingInfo [label="What's your billing\ninformation?"];
+    recommendTest [label="Recommend Test"];
+    initialAssessment [label="Initial Assessment"];
+    getVisitCompletionPaperwork [label="Can you give me\nthe visit completion\npaperwork?"];
+  }
+
+  subgraph cluster_CompleteVetVisit {
+    node [fontname = "Handlee"];
+    edge [fontname = "Handlee"];
+    label="Complete Vet Visit";
+
+    getBill [label="Get Bill"];
+    payBill [label="Pay Bill"];
+    createFollowupAppointments [label="Create\nfollow-up\nappointments"];
+  }
+
+  canISeeTheDoctorNow -> getBillingInfo [ltail=cluster_StartVetVisit,lhead=cluster_VisitVet, label="\lREQUIRED\lEmail\lToken\l", color=red];
+  getVisitCompletionPaperwork -> getBill [ltail=cluster_VisitVet, lhead=cluster_CompleteVetVisit, label="", color=red];
+
+  systemLog [shape=record, label="<f0> System Log | {<f1>DateTime | <f2> MicroserviceName | <f3> StatusCode | <f4> CallerEmail | <f5> ServerName | <f6> Note}"];
+}
+
+
+@enduml
