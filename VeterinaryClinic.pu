@@ -4,8 +4,13 @@ digraph VeterinaryClinic {
   edge [fontname = "Handlee"];
   compound=true;
   label="Daniel's Veterinary Clinic";
+
+  rankdir=LR;
+  
   subgraph cluster_StartVetVisit {
+
     label="Start Vet Visit";
+    edge[style=solid];
     node [shape=record];
     doYouKnowMeInput [label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
     doYouKnowMeOutput [label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
@@ -67,7 +72,7 @@ digraph VeterinaryClinic {
     createFollowupAppointments [label="Create\nfollow-up\nappointments"];
   }
 
-  canISeeTheDoctorNow -> getBillingInfo [ltail=cluster_StartVetVisit,lhead=cluster_VisitVet, label="\lREQUIRED\lEmail\lToken\l", color=red];
+  canISeeTheDoctorNow -> getBillingInfo [ltail=cluster_StartVetVisit,lhead=cluster_VisitVet, label="\lREQUIRED\lEmail\lToken\l", color=red, weight=0]; 
   getVisitCompletionPaperwork -> getBill [ltail=cluster_VisitVet, lhead=cluster_CompleteVetVisit, label="", color=red];
 
   systemLog [shape=record, label="<f0> System Log | {<f1>DateTime | <f2> MicroserviceName | <f3> StatusCode | <f4> CallerEmail | <f5> ServerName | <f6> Note}"];
