@@ -11,21 +11,21 @@ digraph VeterinaryClinic {
 
     label="Start Vet Visit";
     edge[style=solid];
-    node [shape=record];
-    doYouKnowMeInput [label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
-    doYouKnowMeOutput [label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
-    knownEMails [label="Known Emails", shape=invtrapezium];
-    otpWaitList [label="OTP Waitlist", shape=invtrapezium];
-    areYouSureItsMeInput [label="Email|OTP|\[STUFF\]"];
-    areYouSureItsMeOutput [label="{Yes|No} | TempToken | \[STUFF\]"];
-    node [shape=oval];
-    doYouKnowMe [label="Do you\nknow me?"];
+
+    doYouKnowMeInput [shape=record, label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
+    doYouKnowMeOutput [shape=record,label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
+    knownEMails [ shape=invtrapezium, label="Known Emails"];
+    doYouKnowMe [shape=oval, label="Do you\nknow me?"];
     knownEMails->doYouKnowMe;
     doYouKnowMeInput->doYouKnowMe;
     doYouKnowMe->doYouKnowMeOutput;
     doYouKnowMe->otpWaitList [dir=both];
 
-    areYouSureItsMe [label="Are you sure\nit's me?"];
+    otpWaitList [ shape=invtrapezium, label="OTP Waitlist"];
+    areYouSureItsMeInput [shape=record, label="Email|OTP|\[STUFF\]"];
+    areYouSureItsMeOutput [shape=record, label="{Yes|No} | TempToken | \[STUFF\]"];
+
+    areYouSureItsMe [shape=oval, label="Are you sure\nit's me?"];
     areYouSureItsMe->otpWaitList [dir=both];
     areYouSureItsMeInput->areYouSureItsMe;
     areYouSureItsMe->areYouSureItsMeOutput;
