@@ -352,3 +352,6 @@ MigrationBackup/
 .ionide/
 
 obj/
+dotnet/
+.vscode/
+obj/Debug/net5.0/fsharp-play.assets.cache
