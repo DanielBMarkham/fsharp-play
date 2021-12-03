@@ -9,8 +9,9 @@ digraph VeterinaryClinic {
   
   subgraph cluster_StartVetVisit {
 
-    label="Start Vet Visit";
+    label="Start Vet Visit\nI Am Able To Start Getting Help From The Vet";
     edge[style=solid];
+    ProcessAreaStartVetVisit [style=invis];
 
     doYouKnowMeInput [shape=record, label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
     doYouKnowMeOutput [shape=record,label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
@@ -49,12 +50,19 @@ digraph VeterinaryClinic {
     canYouFitMeInForThisAppointment [shape=oval, label="Can you fit me\nin for this\nappoointment?"];
     canYouFitMeInForThisAppointmentInput->canYouFitMeInForThisAppointment;
     canYouFitMeInForThisAppointment->canYouFitMeInForThisAppointmentOutput;
+
+    // MICROSERVICE BUSINESS HIERARCHY -- NOT DATAFLOW OR DEPENDENCIES
+    doYouKnowMe->canYouFitMeInForThisAppointment [color=red, penwidth=1, style=dotted];
+    doYouKnowMe->areYouSureItsMe [color=red, penwidth=1, style=dotted];
+    doYouKnowMe->whatTimesAreOpenForAnAppointment [color=red, penwidth=1, style=dotted];
+    canISeeTheDoctorNow->areYouSureItsMe [color=red, penwidth=1, style=dotted];
   }
 
   subgraph cluster_VisitVet {
     node [fontname = "Handlee"];
     edge [fontname = "Handlee"];
-    label="Visit Vet";
+    label="Visit Vet\nThe Vet Is Helping Me With My Pet";
+    ProcessAreaVisitVet [style=invis];
 
     getBillingInfo [label="What's your billing\ninformation?"];
     recommendTest [label="Recommend Test"];
@@ -65,24 +73,40 @@ digraph VeterinaryClinic {
   subgraph cluster_CompleteVetVisit {
     node [fontname = "Handlee"];
     edge [fontname = "Handlee"];
-    label="Complete Vet Visit";
+    label="Complete Vet Visit\nI Am Prepared To Continue My Relationship With The Clinic/Vet";
+    ProcessAreaCompleteVetVisit [style=invis];
 
     getBill [label="Get Bill"];
     payBill [label="Pay Bill"];
-    createFollowupAppointments [label="Create\nfollow-up\nappointments"];
+    createFollowupAppointments [shape=oval, label="Create\nfollow-up\nappointments"];
   }
 
-  canISeeTheDoctorNow -> getBillingInfo [color=red, ltail=cluster_StartVetVisit,labelfontcolor=red, lhead=cluster_VisitVet, label=< 
+  subgraph cluster_VeterinaryClinicAdministration {
+    node [fontname = "Handlee"];
+    edge [fontname = "Handlee"];
+    label="Veterinary Clinic Administration\nWe Are Able To Treat Patients";
+    ProcessAreaVeterinaryClinicAdministration [style=invis];
+
+    changeAvailabilityTime [shape=oval, label="Can I change whether I'm\nWorking at this time?"];
+    hirePerson [shape=oval, label="Can I hire this person?"];
+    firePerson [shape=oval, label="I fire this person?"];
+
+  }
+  // PROCESS AREA BUSINESS HIERARCHY -- NOT DATAFLOW OR DEPENDENCIES
+
+  ProcessAreaStartVetVisit->ProcessAreaVisitVet [color=red, style=dotted, penwidth=7, ltail=cluster_StartVetVisit,labelfontcolor=red, lhead=cluster_VisitVet, label=< 
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
   
   <TR><TD><FONT COLOR="red">REQUIRED</FONT></TD></TR>
   <TR><TD><FONT COLOR="red">Email</FONT></TD></TR>
-  <TR><TD><FONT COLOR="red">Token</FONT></TD></TR>
+  <TR><TD><FONT COLOR="red">AuthToken</FONT></TD></TR>
+  <TR><TD><FONT COLOR="red">Doctor</FONT></TD></TR>
+  <TR><TD><FONT COLOR="red">AppointmentTime</FONT></TD></TR>
   </TABLE>>]; 
-
-
-  getVisitCompletionPaperwork -> getBill [ltail=cluster_VisitVet, lhead=cluster_CompleteVetVisit, label="", color=red];
-
+  
+  
+  ProcessAreaVeterinaryClinicAdministration->ProcessAreaCompleteVetVisit [color=red, style=dotted, penwidth=7, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_CompleteVetVisit];
+  ProcessAreaVeterinaryClinicAdministration->ProcessAreaVisitVet [color=red, style=dotted, penwidth=7, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_VisitVet];
 
 
   systemLog [shape=record, label="<f0> System Log | {<f1>DateTime | <f2> MicroserviceName | <f3> StatusCode | <f4> CallerEmail | <f5> ServerName | <f6> Note}"];
