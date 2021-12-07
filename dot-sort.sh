@@ -16,3 +16,6 @@ grep '\->' VeterinaryClinic.pu | grep '\[color=red'| grep 'lhead' | grep -oEi '[
 
 # right pa deps including arrow
 grep '\->' VeterinaryClinic.pu | grep '\[color=red'| grep 'lhead' | grep -oEi '\->[a-z|A-Z|0-9]+'
+
+# non pa deps
+grep '\->' VeterinaryClinic.pu | grep '\[color=red'| grep -v 'lhead'

@@ -37,7 +37,7 @@ digraph VeterinaryClinic {
     canISeeTheDoctorNowInput->canISeeTheDoctorNow;
     canISeeTheDoctorNow->canISeeTheDoctorNowOutput;
 
-    docSchedule [shape=invtrapezium, label="Doctors'\nSchedules"];
+    docSchedule [shape=record, label="<f0> Doctors'\nSchedules | {<f1>Timespan | <f2> Doctor }"];
     whatTimesAreOpenForAnAppointmentInput [shape=record, label="{<f0> Email | <f1> Token | <f2> \[StartDate\] | {<f3> \[DAY|Week|Month\]} | <f4> \[STUFF\]}"];
     whatTimesAreOpenForAnAppointment [shape=oval, label="What times are\nopen for an\nappointment?"];
     whatTimesAreOpenForAnAppointmentOutput [shape=record, label="{<f0> Email | <f1> Token | <f2> Doctor | <f3> Start | <f4> Stop | <f5> \[STUFF\]}"];
