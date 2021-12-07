@@ -55,25 +55,25 @@
 <!-- doYouKnowMeInput -->
 <g id="node2" class="node">
 <title>doYouKnowMeInput</title>
-<polygon fill="none" stroke="black" points="211.5,-983.5 211.5,-1052.5 282.5,-1052.5 282.5,-983.5 211.5,-983.5"/>
-<text text-anchor="middle" x="247" y="-1037.3" font-family="Handlee" font-size="14.00">Email</text>
-<polyline fill="none" stroke="black" points="211.5,-1029.5 282.5,-1029.5 "/>
-<text text-anchor="middle" x="247" y="-1014.3" font-family="Handlee" font-size="14.00">[OTP]</text>
-<polyline fill="none" stroke="black" points="211.5,-1006.5 282.5,-1006.5 "/>
-<text text-anchor="middle" x="247" y="-991.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
+<polygon fill="none" stroke="black" points="211.5,-969.5 211.5,-1038.5 282.5,-1038.5 282.5,-969.5 211.5,-969.5"/>
+<text text-anchor="middle" x="247" y="-1023.3" font-family="Handlee" font-size="14.00">Email</text>
+<polyline fill="none" stroke="black" points="211.5,-1015.5 282.5,-1015.5 "/>
+<text text-anchor="middle" x="247" y="-1000.3" font-family="Handlee" font-size="14.00">[OTP]</text>
+<polyline fill="none" stroke="black" points="211.5,-992.5 282.5,-992.5 "/>
+<text text-anchor="middle" x="247" y="-977.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
 </g>
 <!-- doYouKnowMe -->
 <g id="node5" class="node">
 <title>doYouKnowMe</title>
-<ellipse fill="none" stroke="black" cx="875" cy="-1042" rx="50.41" ry="26.74"/>
-<text text-anchor="middle" x="875" y="-1045.8" font-family="Handlee" font-size="14.00">Do you</text>
-<text text-anchor="middle" x="875" y="-1030.8" font-family="Handlee" font-size="14.00">know me?</text>
+<ellipse fill="none" stroke="black" cx="875" cy="-1029" rx="50.41" ry="26.74"/>
+<text text-anchor="middle" x="875" y="-1032.8" font-family="Handlee" font-size="14.00">Do you</text>
+<text text-anchor="middle" x="875" y="-1017.8" font-family="Handlee" font-size="14.00">know me?</text>
 </g>
 <!-- doYouKnowMeInput&#45;&gt;doYouKnowMe -->
 <g id="edge2" class="edge">
 <title>doYouKnowMeInput&#45;&gt;doYouKnowMe</title>
-<path fill="none" stroke="black" d="M282.55,-1019.32C384.62,-1023.24 685.7,-1034.78 814.47,-1039.72"/>
-<polygon fill="black" stroke="black" points="814.42,-1043.22 824.55,-1040.1 814.69,-1036.22 814.42,-1043.22"/>
+<path fill="none" stroke="black" d="M282.55,-1005.38C384.62,-1009.46 685.7,-1021.48 814.47,-1026.62"/>
+<polygon fill="black" stroke="black" points="814.42,-1030.12 824.55,-1027.03 814.7,-1023.13 814.42,-1030.12"/>
 </g>
 <!-- doYouKnowMeOutput -->
 <g id="node3" class="node">
@@ -94,20 +94,20 @@
 <!-- knownEMails -->
 <g id="node4" class="node">
 <title>knownEMails</title>
-<polygon fill="none" stroke="black" points="196.11,-1071 297.89,-1071 334.14,-1107 159.86,-1107 196.11,-1071"/>
-<text text-anchor="middle" x="247" y="-1085.3" font-family="Handlee" font-size="14.00">Known Emails</text>
+<polygon fill="none" stroke="black" points="196.11,-1057 297.89,-1057 334.14,-1093 159.86,-1093 196.11,-1057"/>
+<text text-anchor="middle" x="247" y="-1071.3" font-family="Handlee" font-size="14.00">Known Emails</text>
 </g>
 <!-- knownEMails&#45;&gt;doYouKnowMe -->
 <g id="edge1" class="edge">
 <title>knownEMails&#45;&gt;doYouKnowMe</title>
-<path fill="none" stroke="black" d="M311.47,-1084.23C432.91,-1075.12 696.58,-1055.32 814.7,-1046.45"/>
-<polygon fill="black" stroke="black" points="815.27,-1049.92 824.98,-1045.68 814.75,-1042.94 815.27,-1049.92"/>
+<path fill="none" stroke="black" d="M311.47,-1070.34C432.91,-1061.41 696.58,-1042.04 814.7,-1033.36"/>
+<polygon fill="black" stroke="black" points="815.27,-1036.83 824.98,-1032.6 814.75,-1029.84 815.27,-1036.83"/>
 </g>
 <!-- doYouKnowMe&#45;&gt;doYouKnowMeOutput -->
 <g id="edge3" class="edge">
 <title>doYouKnowMe&#45;&gt;doYouKnowMeOutput</title>
-<path fill="none" stroke="black" d="M924.24,-1047.34C972.16,-1053.12 1047.57,-1063.49 1111.79,-1078 1159.74,-1088.83 1212.69,-1104.79 1253.7,-1118.07"/>
-<polygon fill="black" stroke="black" points="1252.73,-1121.43 1263.32,-1121.2 1254.9,-1114.78 1252.73,-1121.43"/>
+<path fill="none" stroke="black" d="M925.44,-1028.23C974.94,-1029.31 1052.14,-1036.17 1111.79,-1065 1121.19,-1069.55 1119.97,-1075.76 1129,-1081 1167.3,-1103.24 1214.62,-1118.29 1253.05,-1127.88"/>
+<polygon fill="black" stroke="black" points="1252.59,-1131.37 1263.13,-1130.32 1254.23,-1124.57 1252.59,-1131.37"/>
 </g>
 <!-- otpWaitList -->
 <g id="node6" class="node">
@@ -118,9 +118,9 @@
 <!-- doYouKnowMe&#45;&gt;otpWaitList -->
 <g id="edge4" class="edge">
 <title>doYouKnowMe&#45;&gt;otpWaitList</title>
-<path fill="none" stroke="black" d="M934.85,-1048.11C989.9,-1053.6 1074.43,-1061.48 1148,-1066 1315.59,-1076.29 1512.37,-1081.42 1618.58,-1083.62"/>
-<polygon fill="black" stroke="black" points="934.88,-1044.59 924.58,-1047.07 934.18,-1051.56 934.88,-1044.59"/>
-<polygon fill="black" stroke="black" points="1618.81,-1087.12 1628.88,-1083.83 1618.95,-1080.12 1618.81,-1087.12"/>
+<path fill="none" stroke="black" d="M932.9,-1038.44C987.8,-1047.14 1073.35,-1059.64 1148,-1066 1315.01,-1080.22 1511.51,-1083.87 1617.94,-1084.76"/>
+<polygon fill="black" stroke="black" points="933.44,-1034.98 923.01,-1036.86 932.34,-1041.89 933.44,-1034.98"/>
+<polygon fill="black" stroke="black" points="1617.92,-1088.26 1627.95,-1084.84 1617.98,-1081.26 1617.92,-1088.26"/>
 </g>
 <!-- areYouSureItsMe -->
 <g id="node9" class="node">
@@ -132,8 +132,8 @@
 <!-- doYouKnowMe&#45;&gt;areYouSureItsMe -->
 <g id="edge16" class="edge">
 <title>doYouKnowMe&#45;&gt;areYouSureItsMe</title>
-<path fill="none" stroke="red" stroke-dasharray="1,5" d="M925.23,-1040.68C1004.32,-1038.56 1160.08,-1034.39 1251.78,-1031.93"/>
-<polygon fill="red" stroke="red" points="1251.91,-1035.43 1261.82,-1031.67 1251.72,-1028.43 1251.91,-1035.43"/>
+<path fill="none" stroke="red" stroke-dasharray="1,5" d="M925.23,-1029.11C1004.32,-1029.29 1160.08,-1029.63 1251.78,-1029.84"/>
+<polygon fill="red" stroke="red" points="1251.81,-1033.34 1261.82,-1029.86 1251.82,-1026.34 1251.81,-1033.34"/>
 </g>
 <!-- whatTimesAreOpenForAnAppointment -->
 <g id="node15" class="node">
@@ -146,8 +146,8 @@
 <!-- doYouKnowMe&#45;&gt;whatTimesAreOpenForAnAppointment -->
 <g id="edge17" class="edge">
 <title>doYouKnowMe&#45;&gt;whatTimesAreOpenForAnAppointment</title>
-<path fill="none" stroke="red" stroke-dasharray="1,5" d="M923.32,-1049.75C976.64,-1055.55 1062.32,-1055.55 1111.79,-1007 1181.26,-938.82 1082.51,-863.02 1148,-791 1171.72,-764.92 1208.15,-752.64 1241.73,-747.09"/>
-<polygon fill="red" stroke="red" points="1242.65,-750.49 1252.04,-745.57 1241.64,-743.56 1242.65,-750.49"/>
+<path fill="none" stroke="red" stroke-dasharray="1,5" d="M923.72,-1036.47C977.01,-1041.88 1062.26,-1041.26 1111.79,-993 1177.11,-929.35 1086.26,-858.13 1148,-791 1171.86,-765.05 1208.32,-752.79 1241.87,-747.22"/>
+<polygon fill="red" stroke="red" points="1242.79,-750.62 1252.17,-745.69 1241.77,-743.69 1242.79,-750.62"/>
 </g>
 <!-- canYouFitMeInForThisAppointment -->
 <g id="node19" class="node">
@@ -160,24 +160,24 @@
 <!-- doYouKnowMe&#45;&gt;canYouFitMeInForThisAppointment -->
 <g id="edge15" class="edge">
 <title>doYouKnowMe&#45;&gt;canYouFitMeInForThisAppointment</title>
-<path fill="none" stroke="red" stroke-dasharray="1,5" d="M924.87,-1037.59C972.94,-1032.59 1048.17,-1022.98 1111.79,-1007 1128.37,-1002.84 1131.67,-999.06 1148,-994 1181.77,-983.55 1219.65,-973.44 1251.59,-965.38"/>
-<polygon fill="red" stroke="red" points="1252.46,-968.77 1261.31,-962.94 1250.75,-961.98 1252.46,-968.77"/>
+<path fill="none" stroke="red" stroke-dasharray="1,5" d="M924,-1022.49C971.74,-1015.83 1047.01,-1004.8 1111.79,-993 1158.17,-984.55 1209.93,-973.6 1250.72,-964.62"/>
+<polygon fill="red" stroke="red" points="1251.57,-968.02 1260.58,-962.44 1250.06,-961.19 1251.57,-968.02"/>
 </g>
 <!-- areYouSureItsMeInput -->
 <g id="node7" class="node">
 <title>areYouSureItsMeInput</title>
-<polygon fill="none" stroke="black" points="839.5,-1087.5 839.5,-1156.5 910.5,-1156.5 910.5,-1087.5 839.5,-1087.5"/>
-<text text-anchor="middle" x="875" y="-1141.3" font-family="Handlee" font-size="14.00">Email</text>
-<polyline fill="none" stroke="black" points="839.5,-1133.5 910.5,-1133.5 "/>
-<text text-anchor="middle" x="875" y="-1118.3" font-family="Handlee" font-size="14.00">OTP</text>
-<polyline fill="none" stroke="black" points="839.5,-1110.5 910.5,-1110.5 "/>
-<text text-anchor="middle" x="875" y="-1095.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
+<polygon fill="none" stroke="black" points="839.5,-1074.5 839.5,-1143.5 910.5,-1143.5 910.5,-1074.5 839.5,-1074.5"/>
+<text text-anchor="middle" x="875" y="-1128.3" font-family="Handlee" font-size="14.00">Email</text>
+<polyline fill="none" stroke="black" points="839.5,-1120.5 910.5,-1120.5 "/>
+<text text-anchor="middle" x="875" y="-1105.3" font-family="Handlee" font-size="14.00">OTP</text>
+<polyline fill="none" stroke="black" points="839.5,-1097.5 910.5,-1097.5 "/>
+<text text-anchor="middle" x="875" y="-1082.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
 </g>
 <!-- areYouSureItsMeInput&#45;&gt;areYouSureItsMe -->
 <g id="edge6" class="edge">
 <title>areYouSureItsMeInput&#45;&gt;areYouSureItsMe</title>
-<path fill="none" stroke="black" d="M910.84,-1115.93C956.92,-1107.79 1040.62,-1092.68 1111.79,-1078 1161.62,-1067.72 1217.76,-1054.97 1259.78,-1045.19"/>
-<polygon fill="black" stroke="black" points="1260.66,-1048.58 1269.6,-1042.9 1259.07,-1041.76 1260.66,-1048.58"/>
+<path fill="none" stroke="black" d="M910.78,-1102.87C984.94,-1089.79 1159.72,-1058.97 1256.53,-1041.9"/>
+<polygon fill="black" stroke="black" points="1257.26,-1045.32 1266.5,-1040.14 1256.05,-1038.43 1257.26,-1045.32"/>
 </g>
 <!-- areYouSureItsMeOutput -->
 <g id="node8" class="node">
@@ -207,25 +207,25 @@
 <!-- canISeeTheDoctorNowInput -->
 <g id="node10" class="node">
 <title>canISeeTheDoctorNowInput</title>
-<polygon fill="none" stroke="black" points="208.5,-881.5 208.5,-950.5 285.5,-950.5 285.5,-881.5 208.5,-881.5"/>
-<text text-anchor="middle" x="247" y="-935.3" font-family="Handlee" font-size="14.00">EMail</text>
-<polyline fill="none" stroke="black" points="208.5,-927.5 285.5,-927.5 "/>
-<text text-anchor="middle" x="247" y="-912.3" font-family="Handlee" font-size="14.00">TempToken</text>
-<polyline fill="none" stroke="black" points="208.5,-904.5 285.5,-904.5 "/>
-<text text-anchor="middle" x="247" y="-889.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
+<polygon fill="none" stroke="black" points="208.5,-867.5 208.5,-936.5 285.5,-936.5 285.5,-867.5 208.5,-867.5"/>
+<text text-anchor="middle" x="247" y="-921.3" font-family="Handlee" font-size="14.00">EMail</text>
+<polyline fill="none" stroke="black" points="208.5,-913.5 285.5,-913.5 "/>
+<text text-anchor="middle" x="247" y="-898.3" font-family="Handlee" font-size="14.00">TempToken</text>
+<polyline fill="none" stroke="black" points="208.5,-890.5 285.5,-890.5 "/>
+<text text-anchor="middle" x="247" y="-875.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
 </g>
 <!-- canISeeTheDoctorNow -->
 <g id="node12" class="node">
 <title>canISeeTheDoctorNow</title>
-<ellipse fill="none" stroke="black" cx="875" cy="-916" rx="83.38" ry="26.74"/>
-<text text-anchor="middle" x="875" y="-919.8" font-family="Handlee" font-size="14.00">Can I See</text>
-<text text-anchor="middle" x="875" y="-904.8" font-family="Handlee" font-size="14.00">The Doctor Now?</text>
+<ellipse fill="none" stroke="black" cx="875" cy="-902" rx="83.38" ry="26.74"/>
+<text text-anchor="middle" x="875" y="-905.8" font-family="Handlee" font-size="14.00">Can I See</text>
+<text text-anchor="middle" x="875" y="-890.8" font-family="Handlee" font-size="14.00">The Doctor Now?</text>
 </g>
 <!-- canISeeTheDoctorNowInput&#45;&gt;canISeeTheDoctorNow -->
 <g id="edge8" class="edge">
 <title>canISeeTheDoctorNowInput&#45;&gt;canISeeTheDoctorNow</title>
-<path fill="none" stroke="black" d="M285.75,-916C382.46,-916 641.3,-916 781.2,-916"/>
-<polygon fill="black" stroke="black" points="781.48,-919.5 791.48,-916 781.48,-912.5 781.48,-919.5"/>
+<path fill="none" stroke="black" d="M285.75,-902C382.46,-902 641.3,-902 781.2,-902"/>
+<polygon fill="black" stroke="black" points="781.48,-905.5 791.48,-902 781.48,-898.5 781.48,-905.5"/>
 </g>
 <!-- canISeeTheDoctorNowOutput -->
 <g id="node11" class="node">
@@ -248,27 +248,31 @@
 <!-- canISeeTheDoctorNow&#45;&gt;areYouSureItsMe -->
 <g id="edge18" class="edge">
 <title>canISeeTheDoctorNow&#45;&gt;areYouSureItsMe</title>
-<path fill="none" stroke="red" stroke-dasharray="1,5" d="M958.56,-914.72C1006,-917.27 1065.23,-926.24 1111.79,-952 1133.35,-963.93 1126.74,-981.53 1148,-994 1179.33,-1012.38 1218.57,-1021.48 1252.05,-1025.95"/>
-<polygon fill="red" stroke="red" points="1251.89,-1029.46 1262.24,-1027.2 1252.74,-1022.51 1251.89,-1029.46"/>
+<path fill="none" stroke="red" stroke-dasharray="1,5" d="M957.73,-898.31C1006.03,-899.87 1066.41,-908.65 1111.79,-938 1136.68,-954.1 1123.53,-977.28 1148,-994 1178.22,-1014.65 1217.73,-1023.93 1251.65,-1027.93"/>
+<polygon fill="red" stroke="red" points="1251.67,-1031.45 1261.98,-1029 1252.39,-1024.49 1251.67,-1031.45"/>
 </g>
 <!-- canISeeTheDoctorNow&#45;&gt;canISeeTheDoctorNowOutput -->
 <g id="edge9" class="edge">
 <title>canISeeTheDoctorNow&#45;&gt;canISeeTheDoctorNowOutput</title>
-<path fill="none" stroke="black" d="M950.89,-904.71C997.25,-897.69 1057.99,-888.42 1111.79,-880 1120.29,-878.67 1128.99,-877.3 1137.77,-875.92"/>
-<polygon fill="black" stroke="black" points="1138.38,-879.36 1147.71,-874.35 1137.29,-872.45 1138.38,-879.36"/>
+<path fill="none" stroke="black" d="M953.01,-892.37C1003.94,-886.01 1073.01,-877.37 1137.74,-869.28"/>
+<polygon fill="black" stroke="black" points="1138.19,-872.75 1147.68,-868.04 1137.32,-865.81 1138.19,-872.75"/>
 </g>
 <!-- docSchedule -->
 <g id="node13" class="node">
 <title>docSchedule</title>
-<polygon fill="none" stroke="black" points="831.78,-795 918.22,-795 949,-871 801,-871 831.78,-795"/>
-<text text-anchor="middle" x="875" y="-836.8" font-family="Handlee" font-size="14.00">Doctors&#39;</text>
-<text text-anchor="middle" x="875" y="-821.8" font-family="Handlee" font-size="14.00">Schedules</text>
+<polygon fill="none" stroke="black" points="811.5,-795.5 811.5,-856.5 938.5,-856.5 938.5,-795.5 811.5,-795.5"/>
+<text text-anchor="middle" x="875" y="-841.3" font-family="Handlee" font-size="14.00">Doctors&#39;</text>
+<text text-anchor="middle" x="875" y="-826.3" font-family="Handlee" font-size="14.00">Schedules</text>
+<polyline fill="none" stroke="black" points="811.5,-818.5 938.5,-818.5 "/>
+<text text-anchor="middle" x="846.5" y="-803.3" font-family="Handlee" font-size="14.00">Timespan</text>
+<polyline fill="none" stroke="black" points="881.5,-795.5 881.5,-818.5 "/>
+<text text-anchor="middle" x="910" y="-803.3" font-family="Handlee" font-size="14.00">Doctor</text>
 </g>
 <!-- docSchedule&#45;&gt;whatTimesAreOpenForAnAppointment -->
 <g id="edge12" class="edge">
 <title>docSchedule&#45;&gt;whatTimesAreOpenForAnAppointment</title>
-<path fill="none" stroke="black" d="M929.59,-822.35C1008.51,-806.68 1156.37,-777.3 1246.92,-759.31"/>
-<polygon fill="black" stroke="black" points="1247.73,-762.72 1256.86,-757.34 1246.37,-755.85 1247.73,-762.72"/>
+<path fill="none" stroke="black" d="M938.63,-815.85C986.2,-808.03 1053.19,-796.77 1111.79,-786 1156.74,-777.74 1206.9,-767.84 1247.17,-759.73"/>
+<polygon fill="black" stroke="black" points="1248.08,-763.12 1257.19,-757.71 1246.69,-756.26 1248.08,-763.12"/>
 </g>
 <!-- whatTimesAreOpenForAnAppointmentInput -->
 <g id="node14" class="node">
@@ -319,24 +323,24 @@
 <!-- canYouFitMeInForThisAppointmentInput -->
 <g id="node17" class="node">
 <title>canYouFitMeInForThisAppointmentInput</title>
-<polygon fill="none" stroke="black" points="717,-961 717,-997 1033,-997 1033,-961 717,-961"/>
-<text text-anchor="middle" x="740.5" y="-975.3" font-family="Handlee" font-size="14.00">Email</text>
-<polyline fill="none" stroke="black" points="764,-961 764,-997 "/>
-<text text-anchor="middle" x="789" y="-975.3" font-family="Handlee" font-size="14.00">Token</text>
-<polyline fill="none" stroke="black" points="814,-961 814,-997 "/>
-<text text-anchor="middle" x="842.5" y="-975.3" font-family="Handlee" font-size="14.00">Doctor</text>
-<polyline fill="none" stroke="black" points="871,-961 871,-997 "/>
-<text text-anchor="middle" x="894.5" y="-975.3" font-family="Handlee" font-size="14.00">Start</text>
-<polyline fill="none" stroke="black" points="918,-961 918,-997 "/>
-<text text-anchor="middle" x="940" y="-975.3" font-family="Handlee" font-size="14.00">Stop</text>
-<polyline fill="none" stroke="black" points="962,-961 962,-997 "/>
-<text text-anchor="middle" x="997.5" y="-975.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
+<polygon fill="none" stroke="black" points="717,-947 717,-983 1033,-983 1033,-947 717,-947"/>
+<text text-anchor="middle" x="740.5" y="-961.3" font-family="Handlee" font-size="14.00">Email</text>
+<polyline fill="none" stroke="black" points="764,-947 764,-983 "/>
+<text text-anchor="middle" x="789" y="-961.3" font-family="Handlee" font-size="14.00">Token</text>
+<polyline fill="none" stroke="black" points="814,-947 814,-983 "/>
+<text text-anchor="middle" x="842.5" y="-961.3" font-family="Handlee" font-size="14.00">Doctor</text>
+<polyline fill="none" stroke="black" points="871,-947 871,-983 "/>
+<text text-anchor="middle" x="894.5" y="-961.3" font-family="Handlee" font-size="14.00">Start</text>
+<polyline fill="none" stroke="black" points="918,-947 918,-983 "/>
+<text text-anchor="middle" x="940" y="-961.3" font-family="Handlee" font-size="14.00">Stop</text>
+<polyline fill="none" stroke="black" points="962,-947 962,-983 "/>
+<text text-anchor="middle" x="997.5" y="-961.3" font-family="Handlee" font-size="14.00">[STUFF]</text>
 </g>
 <!-- canYouFitMeInForThisAppointmentInput&#45;&gt;canYouFitMeInForThisAppointment -->
 <g id="edge13" class="edge">
 <title>canYouFitMeInForThisAppointmentInput&#45;&gt;canYouFitMeInForThisAppointment</title>
-<path fill="none" stroke="black" d="M1033,-968.14C1104.98,-963.16 1187.12,-957.47 1245.74,-953.42"/>
-<polygon fill="black" stroke="black" points="1246.3,-956.89 1256.03,-952.7 1245.81,-949.9 1246.3,-956.89"/>
+<path fill="none" stroke="black" d="M1033,-959.04C1104.86,-956.32 1186.85,-953.2 1245.44,-950.98"/>
+<polygon fill="black" stroke="black" points="1245.88,-954.47 1255.74,-950.59 1245.61,-947.47 1245.88,-954.47"/>
 </g>
 <!-- canYouFitMeInForThisAppointmentOutput -->
 <g id="node18" class="node">
