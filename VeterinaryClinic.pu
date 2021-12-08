@@ -37,7 +37,7 @@ digraph VeterinaryClinic {
     canISeeTheDoctorNowInput->canISeeTheDoctorNow;
     canISeeTheDoctorNow->canISeeTheDoctorNowOutput;
 
-    docSchedule [shape=record, label="<f0> Doctors'\nSchedules | {<f1>Timespan | <f2> Doctor }"];
+    docSchedule [shape=record, label="<f0> Doctors' Schedules | {<f1>TimespanUnavailable | <f2> Doctor | <f3> ReasonUnavailable | <f4> Email | <f5> ConfirmationNumber }"];
     whatTimesAreOpenForAnAppointmentInput [shape=record, label="{<f0> Email | <f1> Token | <f2> \[StartDate\] | {<f3> \[DAY|Week|Month\]} | <f4> \[STUFF\]}"];
     whatTimesAreOpenForAnAppointment [shape=oval, label="What times are\nopen for an\nappointment?"];
     whatTimesAreOpenForAnAppointmentOutput [shape=record, label="{<f0> Email | <f1> Token | <f2> Doctor | <f3> Start | <f4> Stop | <f5> \[STUFF\]}"];
@@ -50,6 +50,7 @@ digraph VeterinaryClinic {
     canYouFitMeInForThisAppointment [shape=oval, label="Can you fit me\nin for this\nappoointment?"];
     canYouFitMeInForThisAppointmentInput->canYouFitMeInForThisAppointment;
     canYouFitMeInForThisAppointment->canYouFitMeInForThisAppointmentOutput;
+    canYouFitMeInForThisAppointment->docSchedule;
 
     // MICROSERVICE BUSINESS HIERARCHY -- NOT DATAFLOW OR DEPENDENCIES
     doYouKnowMe->canYouFitMeInForThisAppointment [color=red, penwidth=3, style=dotted];
