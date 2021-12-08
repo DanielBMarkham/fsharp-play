@@ -15,14 +15,14 @@ digraph VeterinaryClinic {
 
     doYouKnowMeInput [shape=record, label="<f0> Email|<f1> [OTP]|<f2> \[STUFF\]"];
     doYouKnowMeOutput [shape=record,label="{<f0> Yes|<f1> No|<f2>Maybe} | <f3> Email| <f4> \[OTP\]| <f5> \[STUFF\]"];
-    knownEMails [ shape=invtrapezium, label="Known Emails"];
+    knownEMails [ shape=record, label="<f0> Known Emails | <f1> Email"];
     doYouKnowMe [shape=oval, label="Do you\nknow me?"];
     knownEMails->doYouKnowMe;
     doYouKnowMeInput->doYouKnowMe;
     doYouKnowMe->doYouKnowMeOutput;
     doYouKnowMe->otpWaitList [dir=both];
 
-    otpWaitList [ shape=invtrapezium, label="OTP Waitlist"];
+    otpWaitList [ shape=record, label="<f0> One-Time\nPassword\nWaitlist | <f1> Email | <f2> Token"];
     areYouSureItsMeInput [shape=record, label="Email|OTP|\[STUFF\]"];
     areYouSureItsMeOutput [shape=record, label="{Yes|No} | TempToken | \[STUFF\]"];
 
@@ -52,10 +52,10 @@ digraph VeterinaryClinic {
     canYouFitMeInForThisAppointment->canYouFitMeInForThisAppointmentOutput;
 
     // MICROSERVICE BUSINESS HIERARCHY -- NOT DATAFLOW OR DEPENDENCIES
-    doYouKnowMe->canYouFitMeInForThisAppointment [color=red, penwidth=1, style=dotted];
-    doYouKnowMe->areYouSureItsMe [color=red, penwidth=1, style=dotted];
-    doYouKnowMe->whatTimesAreOpenForAnAppointment [color=red, penwidth=1, style=dotted];
-    canISeeTheDoctorNow->areYouSureItsMe [color=red, penwidth=1, style=dotted];
+    doYouKnowMe->canYouFitMeInForThisAppointment [color=red, penwidth=3, style=dotted];
+    doYouKnowMe->areYouSureItsMe [color=red, penwidth=3, style=dotted];
+    doYouKnowMe->whatTimesAreOpenForAnAppointment [color=red, penwidth=3, style=dotted];
+    canISeeTheDoctorNow->areYouSureItsMe [color=red, penwidth=3, style=dotted];
   }
 
   subgraph cluster_VisitVet {
@@ -94,10 +94,10 @@ digraph VeterinaryClinic {
   }
   // PROCESS AREA BUSINESS HIERARCHY -- NOT DATAFLOW OR DEPENDENCIES
 
-  ProcessAreaStartVetVisit->ProcessAreaVisitVet [color=red, style=dotted, penwidth=7, ltail=cluster_StartVetVisit,labelfontcolor=red, lhead=cluster_VisitVet, label=< 
+  ProcessAreaStartVetVisit->ProcessAreaVisitVet [color=red, style=dotted, penwidth=6, ltail=cluster_StartVetVisit,labelfontcolor=red, lhead=cluster_VisitVet, label=< 
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" >
   
-  <TR><TD><FONT COLOR="red">REQUIRED</FONT></TD></TR>
+  <TR><TD><FONT COLOR="red"><b>REQUIRED</b></FONT></TD></TR>
   <TR><TD><FONT COLOR="red">Email</FONT></TD></TR>
   <TR><TD><FONT COLOR="red">AuthToken</FONT></TD></TR>
   <TR><TD><FONT COLOR="red">Doctor</FONT></TD></TR>
@@ -105,8 +105,8 @@ digraph VeterinaryClinic {
   </TABLE>>]; 
   
   
-  ProcessAreaVeterinaryClinicAdministration->ProcessAreaCompleteVetVisit [color=red, style=dotted, penwidth=7, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_CompleteVetVisit];
-  ProcessAreaVeterinaryClinicAdministration->ProcessAreaVisitVet [color=red, style=dotted, penwidth=7, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_VisitVet];
+  ProcessAreaVeterinaryClinicAdministration->ProcessAreaCompleteVetVisit [color=red, style=dotted, penwidth=6, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_CompleteVetVisit];
+  ProcessAreaVeterinaryClinicAdministration->ProcessAreaVisitVet [color=red, style=dotted, penwidth=6, ltail=cluster_VeterinaryClinicAdministration, lhead=cluster_VisitVet];
 
 
   systemLog [shape=record, label="<f0> System Log | {<f1>DateTime | <f2> MicroserviceName | <f3> StatusCode | <f4> CallerEmail | <f5> ServerName | <f6> Note}"];

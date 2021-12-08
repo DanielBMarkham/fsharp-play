@@ -19,3 +19,6 @@ grep '\->' VeterinaryClinic.pu | grep '\[color=red'| grep 'lhead' | grep -oEi '\
 
 # non pa deps
 grep '\->' VeterinaryClinic.pu | grep '\[color=red'| grep -v 'lhead'
+
+# Microservices List
+grep -v '\->' VeterinaryClinic.pu | grep '\[shape=oval' | cut -d '[' -f 1 | awk '{gsub(/^[ ]+/,""); print $0}'
