@@ -3,6 +3,20 @@
 open System
 open System.IO.Pipes
 
+// You've heard of the 2-value boolean
+// The 3-value boolean wich has null
+// Even perhaps the 4-value boolean
+// Now, for a limited time only
+// The FIVE value boolean!
+// it's the "Foolean"
+type Foolean = 
+    | Yup       // true
+    | Nope      // false
+    | Dunno     // null
+    | Huh       // IO failure
+    | Yeet      // function that returns a Foolean
+
+
 let pipeoptions = new PipeOptions()
 let bar = new PipeStream(pipeoptions)
 
